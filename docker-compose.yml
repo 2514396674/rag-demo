@@ -1,0 +1,16 @@
+services:
+  rag:
+    build: .
+    container_name: rag-handbook
+    ports:
+      - "8501:8501"
+    environment:
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY}
+      - FASTEMBED_CACHE_PATH=/app/fastembed_cache
+    volumes:
+      - ./docs:/app/docs:ro          # 语料：改文档不用重建镜像
+      - model_cache:/app/fastembed_cache
+    restart: unless-stopped
+
+volumes:
+  model_cache:

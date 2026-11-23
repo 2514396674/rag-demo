@@ -1,0 +1,5 @@
+fastembed==0.9.1
+streamlit==1.67.0
+pypdf==7.1.1
+requests==2.34.2
+rank_bm25==0.2.2
